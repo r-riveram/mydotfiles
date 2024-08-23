@@ -1,0 +1,21 @@
+live_config_reload = true
+
+[cursor]
+blink_interval = 600
+unfocused_hollow = false
+
+[cursor.style]
+blinking = "on"
+shape = "Underline"
+
+[selection]
+save_to_clipboard = false
+
+[window]
+decorations = "full"
+dynamic_title = true
+opacity = 1
+
+[window.padding]
+x = 16
+y = 32

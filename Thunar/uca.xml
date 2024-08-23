@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+    <action>
+        <icon>utilities-terminal</icon>
+        <name>Abrir Terminal Aquí</name>
+        <submenu></submenu>
+        <unique-id>1723258945009414-1</unique-id>
+        <command>exo-open --working-directory %f --launch alacritty</command>
+        <description>Abre una terminal Alacritty en el directorio actual</description>
+        <range></range>
+        <patterns>*</patterns>
+        <startup-notify/>
+        <directories/>
+    </action>
+    
+    <action>
+        <icon>visual-studio-code</icon>
+        <name>Abrir en Visual Studio Code</name>
+        <submenu></submenu>
+        <unique-id>1723258945009414-2</unique-id>
+        <command>code %f</command>
+        <description>Abre el directorio o archivo actual en Visual Studio Code</description>
+        <range></range>
+        <patterns>*</patterns>
+        <startup-notify/>
+        <directories/>
+        <audio-files/>
+        <image-files/>
+        <other-files/>
+        <text-files/>
+        <video-files/>
+    </action>
+    
+    <action>
+        <icon>system-file-manager</icon>
+        <name>Abrir como Root</name>
+        <submenu></submenu>
+        <unique-id>1723258945009414-3</unique-id>
+        <command>pkexec thunar %f</command>
+        <description>Abre Thunar con privilegios de root en el directorio actual</description>
+        <range></range>
+        <patterns>*</patterns>
+        <startup-notify/>
+        <directories/>
+    </action>
+    
+    <action>
+        <icon>accessories-text-editor</icon>
+        <name>Editar como Root</name>
+        <submenu></submenu>
+        <unique-id>1723258945009414-4</unique-id>
+        <command>pkexec gedit %f</command>
+        <description>Edita el archivo actual con privilegios de root</description>
+        <range></range>
+        <patterns>*</patterns>
+        <startup-notify/>
+        <text-files/>
+    </action>
+    
+    <action>
+        <icon>preferences-system-search</icon>
+        <name>Buscar en este Directorio</name>
+        <submenu></submenu>
+        <unique-id>1723258945009414-5</unique-id>
+        <command>catfish --path=%f</command>
+        <description>Busca archivos en el directorio actual usando Catfish</description>
+        <range></range>
+        <patterns>*</patterns>
+        <startup-notify/>
+        <directories/>
+    </action>
+</actions>

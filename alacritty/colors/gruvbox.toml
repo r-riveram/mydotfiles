@@ -1,0 +1,23 @@
+[colors.primary]
+background = "0x000000"  # chocolate-cosmos
+foreground = "0xffcbdd"  # fairy-tale
+
+[colors.normal]
+black = "0x3e000c"    # chocolate-cosmos
+red = "0xfb4b4e"      # imperial-red
+green = "0x7c0b2b"    # claret
+yellow = "0xd10000"   # engineering-orange
+blue = "0xfb4b4e"     # imperial-red (reused)
+magenta = "0x7c0b2b"  # claret (reused)
+cyan = "0xffcbdd"     # fairy-tale
+white = "0xffcbdd"    # fairy-tale (reused)
+
+[colors.bright]
+black = "0x7c0b2b"    # claret
+red = "0xfb4b4e"      # imperial-red
+green = "0x7c0b2b"    # claret
+yellow = "0xd10000"   # engineering-orange
+blue = "0xfb4b4e"     # imperial-red (reused)
+magenta = "0x7c0b2b"  # claret (reused)
+cyan = "0xffcbdd"     # fairy-tale
+white = "0xffcbdd"    # fairy-tale (reused)

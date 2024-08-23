@@ -1,0 +1,36 @@
+# Global properties
+command=~/.config/i3blocks/$BLOCK_NAME
+separator_block_width=10
+markup=pango
+
+[cpu_temperature]
+command=echo "<span background='#7C0B2B'> <span></span>  </span><span background='#bfbaac'> TEMP: $(sensors | grep 'Core 0' | awk '{print $3}') </span>"
+interval=10
+
+[cpu_usage]
+command=echo "<span background='#7C0B2B'>   </span><span background='#bfbaac'> CPU: $(mpstat 1 1 | awk '/Average:/ {print 100-$NF"%"}') </span>"
+interval=10
+
+[memory]
+command=echo "<span background='#7C0B2B'>   </span><span background='#bfbaac'> RAM: $(free -h | awk '/^Mem:/ {print $3 "/" $2}') </span>"
+interval=30
+
+[volume]
+command=echo "<span background='#7C0B2B'>   </span><span background='#bfbaac'> VOL: $(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')% </span>"
+interval=once
+signal=10
+
+
+
+[uptime]
+command=echo "<span background='#7C0B2B'>   </span><span background='#bfbaac'> UP: $(uptime -p | sed 's/up //') </span>"
+interval=60
+
+
+[wireless]
+command=echo "<span background='#7C0B2B'>   </span><span background='#bfbaac'> $(iwgetid -r) ($(grep "^\s*w" /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')%) $(ip addr show wlan0 | grep 'inet ' | awk '{print $2}' | cut -d/ -f1) </span>"
+interval=60
+
+[time]
+command=echo "<span background='#7C0B2B'>   </span><span background='#bfbaac'> $(date '+%Y-%m-%d %H:%M:%S') </span>"
+interval=1

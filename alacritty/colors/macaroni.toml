@@ -1,0 +1,23 @@
+[colors.primary]
+background = "0x2c2126"
+foreground = "0xffdccc"
+
+[colors.normal]
+black = "0xffffff"  # Convertido a blanco
+red = "0xfb6376"
+green = "0xfcb1a6"
+yellow = "0xd4f2db"
+magenta = "0xfb6376"
+blue = "0xfcb1a6"
+cyan = "0xd4f2db"
+white = "0xffdccc"
+
+[colors.bright]
+black = "0xffffff"  # Convertido a blanco
+red = "0xfb6376"
+green = "0xfcb1a6"
+yellow = "0xd4f2db"
+magenta = "0xfb6376"
+blue = "0xfcb1a6"
+cyan = "0xd4f2db"
+white = "0xffffff"

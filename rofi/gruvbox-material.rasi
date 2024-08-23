@@ -1,0 +1,154 @@
+/**
+ * Tema personalizado de Rofi - Estético y Transparente (Mejorado)
+ */
+* {
+    gruv0: #1a1a1aF2;
+    gruv1: #242424E6;
+    gruv2: #2a2a2aFF;
+    gruv3: #b23a48FF;
+    gruv4: #d4d4d4FF;
+    gruv5: #bfbaac;
+    gruv6: #e0e0e0FF;
+    gruv7: #8c2f39E6;
+    gruv8: #3a3a3aCC;
+    gruv9: #1a1a1aFF;
+    gruv10: #4a4a4aCC;
+    red: #b23a48FF;
+    orange: #8c2f39FF;
+    yellow: #fed0bbFF;
+    aqua: #8c2f39CC;
+    purple: #461220E6;
+    reddark: #8c2f39FF;
+    yellowdark: #b23a48FF;
+    foreground: @gruv4;
+    background-color: transparent;
+    
+    highlight: underline bold #fed0bbFF;
+    transparent: rgba(70,18,32,0.75);
+
+    /* Definiciones de fuente */
+    font: "Jetbrains Mono 10";
+}
+
+window {
+    location: center;
+    anchor: center;
+    border-radius: 0px;
+    height: 302px;
+    width: 420px;
+    background-color: rgba(26, 26, 26, 0.90);
+    spacing: 0;
+    children: [mainbox];
+    orientation: horizontal;
+    border: 5px;
+    border-color: @gruv5;
+    font: @font;
+}
+
+mainbox {
+    spacing: 0;
+    children: [ inputbar, message, listview ];
+    background-color: transparent;
+}
+
+message {
+    color: @gruv6;
+    padding: 10px;
+    border-color: @gruv3;
+    background-color: @gruv0;
+    font: @font;
+}
+
+inputbar {
+    color: @gruv6;
+    padding: 14px;
+    background-color: @gruv0;
+    border: 1px;
+    border-radius: 6px 6px 0 0;
+    children: [ prompt, textbox-prompt-colon, entry, case-indicator ];
+}
+
+prompt {
+    spacing: 0;
+    text-color: @gruv6;
+    font: "Jetbrains Mono 10";
+}
+
+textbox-prompt-colon {
+    expand: false;
+    text-color: @gruv5;
+    margin: 0 1em 0 0;
+}
+
+entry {
+    spacing: 0;
+    text-color: @gruv6;
+}
+
+case-indicator {
+    spacing: 0;
+    text-color: @red;
+}
+
+listview {
+    padding: 8px;
+    border: 2px 2px 2px 2px;
+    border-color: @gruv5;
+    background-color: @gruv1;
+    dynamic: false;
+    lines: 5;
+    scrollbar: true;
+}
+
+scrollbar {
+    width: 4px;
+    border: 0;
+    handle-width: 8px;
+    handle-color: @gruv5;
+    background-color: @gruv2;
+    margin: 0 0 0 6px;
+}
+
+element {
+    padding: 8px;
+    vertical-align: 0.5;
+    border-radius: 4px;
+    color: @foreground;
+    text-color: @gruv4;
+    background-color: transparent;
+}
+
+element.selected.normal {
+    background-color: #8b2f39;
+    text-color: @gruv6;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
+    font: "monospace bold 12";
+}
+
+element-icon {
+    size: 1.5em;
+    padding: 0 10px 0 0;
+    background-color: inherit;
+}
+
+button {
+    padding: 8px;
+    color: @foreground;
+    horizontal-align: 0.5;
+    border: 2px 0 2px 2px;
+    border-radius: 8px;
+    border-color: @gruv5;
+    background-color: @gruv1;
+    font: "Jetbrains Mono 10";
+}
+
+button.selected.normal {
+    border: 2px 0 2px 2px;
+    border-color: @gruv6;
+    background-color: @gruv7;
+}

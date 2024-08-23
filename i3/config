@@ -1,0 +1,169 @@
+# Basic Configuration
+set $ctrl Control
+set $alt Mod1
+set $mod Mod4
+font pango:JetBrainsMono Nerd Font Mono Bold 12
+
+# Startup Applications
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
+exec --no-startup-id flameshot
+exec --no-startup-id nm-applet
+exec --no-startup-id feh --bg-scale ~/Documents/b4.jpg
+exec --no-startup-id dunst
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec_always --no-startup-id xsetroot -cursor_name left_ptr
+
+set $term alacritty
+
+# i3blocks!
+bar {
+    font pango:JetBrainsMono Nerd Font Mono UltraBold 11
+    status_command i3blocks
+    position top
+    strip_workspace_numbers yes
+    colors {
+        background #000000
+        statusline #7C0B2B
+        separator #000000
+
+        focused_workspace  #000000 #8b2f39 #bfbaac
+        active_workspace   #000000 #3e000c #bfbaac
+        inactive_workspace #000000 #3e000c #bfbaac
+        urgent_workspace   #000000 #D10000 #bfbaac
+    }
+}
+
+# Workspace Startup
+exec --no-startup-id i3-msg 'workspace $ws1; exec alacritty -e htop'
+exec --no-startup-id i3-msg 'workspace $ws2; exec brave-nightly'
+exec --no-startup-id i3-msg 'workspace $ws3; exec spotify-launcher'
+exec --no-startup-id i3-msg 'workspace $ws5; exec vesktop'
+exec --no-startup-id i3-msg 'workspace $ws4; exec thunar'
+exec --no-startup-id i3-msg 'workspace $ws1'
+
+# Window Assignments
+assign [class="Brave-browser"] $ws2
+assign [class="Alacritty"] $ws1
+assign [class="Spotify"] $ws3
+assign [class="vesktop"] $ws5
+assign [class="Thunar"] $ws4
+
+# Floating Windows
+for_window [class="Eog|Sxiv|feh|mpv|Vlc|File-roller|Xarchiver"] floating enable
+for_window [class="Eog|Sxiv|feh|mpv|Vlc|File-roller|Xarchiver"] focus
+
+# Window Aesthetics
+for_window [class=".*"] border pixel 2
+gaps inner 2
+smart_gaps on
+smart_borders on
+
+# Keybindings
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+bindsym $mod+F1 exec --no-startup-id brightnessctl set 10%-
+bindsym $mod+F2 exec --no-startup-id brightnessctl set +10%
+bindsym $mod+Return exec $term
+bindsym $mod+g exec brave-nightly
+bindsym $mod+n exec thunar
+bindsym $ctrl+space exec rofi -disable-history -show drun -show-icons -font monospace 12 -theme ~/.config/rofi/config.rasi
+
+# Volume Control
+bindsym $mod+F7 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym $mod+F6 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym $mod+F5 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Power Menu
+bindsym $mod+Escape exec --no-startup-id ~/.config/i3/power-menu.sh
+
+# Window Colors
+client.focused          #fb4b4e #3e000c #ffcbdd #7c0b2b #bfbaac
+client.focused_inactive #3e000c #3e000c #ffcbdd #3e000c #3e000c
+client.unfocused        #3e000c #3e000c #ffcbdd #3e000c #3e000c
+client.urgent           #3e000c #d10000 #ffcbdd #3e000c #d10000
+client.placeholder      #3e000c #3e000c #ffcbdd #3e000c #3e000c
+client.background       #000000
+
+# Additional Keybindings
+bindsym $mod+q kill
+bindsym $alt+F4 kill
+
+# Focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Layout
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+f floating toggle
+bindsym $mod+space focus mode_toggle
+
+# define names for workspaces
+set $ws1    "1: I "
+set $ws2    "2: II "
+set $ws3    "3: III "
+set $ws4    "4: IV "
+set $ws5    "5: V "
+set $ws6    "6: VI "
+set $ws7    "7: VII "
+set $ws8    "8: VIII "
+set $ws9    "9: IX "
+set $ws10   "10: X "
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+
+# Reload and Restart
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+# Exit i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Resize Mode
+mode "resize" {
+        bindsym Right resize shrink width 1 px or 1 ppt
+        bindsym Down resize grow height 1 px or 1 ppt
+        bindsym Up resize shrink height 1 px or 1 ppt
+        bindsym Left resize grow width 1 px or 1 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
